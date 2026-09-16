@@ -241,10 +241,10 @@ align-items: center;
     font-weight: 700;
 }
 
-.status-espera{
+.aguardando{
     color: red;
 }
 
-.status-retirado{
+.retirado{
     color: rgb(49, 221, 6);
 }
