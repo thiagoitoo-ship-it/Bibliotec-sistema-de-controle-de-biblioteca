@@ -1,5 +1,5 @@
 
-/* busca */
+/* BUSCA */
 
 .area-busca {
     display: flex;
@@ -11,13 +11,14 @@
 }
 
 .campo-busca {
-    /* esse elemento pode ocupar o espaço disponível dentro do container flex */
+    /* esse elemento pode ocupar o espaço disponível dentro do container flex. */
     flex: 1;
-    /* 
-    flex: 1; é a mesma coisa que 
-    flex-grow: 1; o elemento pode crescer quando sobra espaço
-    flex-shrink: 1; o elemento pode encolher quando necessário
-    flex-basis: 0%; fala para o elemento começar com 0% e junto com os outros pode crescer ou diminuir
+
+    /*
+        flex: 1 é a mesma coisa que:
+            flex-grow: 1; o elemento pode crescer quando sobra espaço.
+            flex-shrink: 1; o elemento pode encolher quando não existe espaço suficiente.
+            flex-basis: 0%; fala para o elemento começar do 0% e junto com os outros, pode crescer ou diminuir.
     */
 
     height: 50px;
@@ -25,13 +26,11 @@
 
     border: 1px solid var(--cor-bordas);
     border-radius: 10px;
-
     background-color: var(--branco);
 
     display: flex;
     align-items: center;
     gap: 20px;
-
 }
 
 .campo-busca i {
@@ -41,12 +40,16 @@
 
 .campo-busca input {
     flex: 1;
+
     border: none;
     outline: none;
-    font-family: inherit;
+
+    font-family: inherit; /* estamos dizendo para herdar a fonte do pai */
     font-size: 1.1em;
     color: var(--textos-paginas);
 }
+
+/* FILTRO */
 
 .botao-filtro {
     height: 50px;
@@ -67,112 +70,119 @@
 
     color: var(--texto);
 
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: 600;
 
     cursor: pointer;
     transition: 0.2s;
 }
+
 .botao-filtro i {
     font-size: 20px;
     color: var(--texto);
-
 }
 
 .botao-filtro:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
 
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
 }
 
-/* cabeçalho da lista */
+/* CABEÇALHO DA LISTA */
+
 .cabecalho-lista {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
 
     align-items: center;
 
-    padding: 0 20px 20px;
+    padding: 0 20px 20px; 
 
     font-weight: 700;
 }
 
 /* alinhando o nome a esquerda */
-
 .cabecalho-lista h2:nth-child(1) {
     text-align: left;
 }
 
-.cabecalho-lista h2{
+/* alinhando o restante ao centro */
+.cabecalho-lista h2 {
     text-align: center;
     font-size: 1em;
 }
 
-/* lista de livros */
+/* LISTA DE LIVROS */
 
 .lista-livros {
     display: flex;
     flex-direction: column;
+
     gap: 20px;
 }
 
-    
-.livro{
-display: grid;
-grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+.livro {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
 
-align-items: center;
-justify-items: center;
+    align-items: center;
+    justify-items: center;
 
-height: 60px;
-padding: 0 30px;
+    height: 60px;
 
-border: 1px solid var(--cor-bordas);
-border-radius: 10px;
+    padding: 0 30px;
 
-font-size: 1em;
+    border: 1px solid var(--cor-bordas);
+    border-radius: 10px;
+
+    font-size: 1em;
 }
 
-.livro p:nth-child(1){
+.livro p:nth-child(1) {
     justify-self: flex-start;
 }
 
-/* checkbox */
+/* CHECKBOX */
 
-input[type="checkbox"]{
+input[type="checkbox"] {
     height: 30px;
     width: 30px;
 
     border: 1px solid var(--textos-paginas);
     border-radius: 5px;
 
+    /* muda a cor do checkbox */
+    /* accent-color: var(--cor-destaque); */
+
+    /* cancela a aparência padrão do checkbox */
     appearance: none;
     cursor: pointer;
 }
 
-input[type="checkbox"]:checked{
+input[type="checkbox"]:checked /* pseudo-classe */ {
     background-color: var(--cor-destaque);
     border: none;
 }
 
-input[type="checkbox"]:checked::after{
+/* content é usado com o pseudo-elemento ::after */
+input[type="checkbox"]:checked::after {
     content: "✓";
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    height: 100%;
     width: 100%;
+    height: 100%;
 
     color: var(--branco);
     font-size: 20px;
     font-weight: 800;
 }
 
-/* botões de ação */
+/* BOTÕES DE AÇÃO */
 
-.botao-acao{
+.botao-acao {
     border: none;
     background-color: transparent;
 
@@ -182,38 +192,42 @@ input[type="checkbox"]:checked::after{
     transition: 0.3s;
 }
 
-.botao-acao:hover{
+.botao-acao:hover {
     color: var(--cor-destaque);
     transform: translateY(-1px);
-
+    cursor: pointer;
 }
 
-/* rodape da listagem */
+/* RODAPÉ DA LISTAGEM */
 
-.rodape-listagem{
+.rodape-listagem {
     margin-top: 30px;
+
     padding-top: 10px;
-border-top: 1px solid var(--cor-bordas);
-display: grid;
-grid-template-columns: 1fr auto;
-align-items: center;
+
+    border-top: 1px solid var(--cor-bordas);
+
+    display: grid;
+    align-items: center;
+
+    grid-template-columns: 1fr auto;
 }
 
-.quantidade-livros{
+.quantidade-livros {
     font-size: 0.8em;
     color: var(--textos-paginas);
     font-weight: 600;
 }
 
-/* paginação */
-.paginacao{
+/* PAGINAÇÃO */
+
+.paginacao {
     display: flex;
     align-items: center;
     gap: 20px;
-
 }
 
-.botao-pagina{
+.botao-pagina {
     border: none;
     background-color: transparent;
 
@@ -223,7 +237,7 @@ align-items: center;
     cursor: pointer;
 }
 
-.pagina-atual{
+.pagina-atual {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -234,7 +248,6 @@ align-items: center;
     border-radius: 10px;
 
     background-color: var(--azul-escuro);
-
     color: var(--branco);
 
     font-size: 0.8em;
